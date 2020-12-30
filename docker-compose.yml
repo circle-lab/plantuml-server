@@ -1,0 +1,16 @@
+# バージョン2記法で記述する
+version: '3.8'
+
+# 起動するコンテナを定義する
+services:
+    # Jettyコンテナ
+    web:
+        build: plantuml
+#            context: ./plantuml
+#            dockerfile: plantuml/Dockerfile
+        image: plantuml-jetty-server-alpine
+        container_name: plantuml
+        ports:
+            - "18080:8080"
+        working_dir: /usr/local/jetty
+        command: java -jar start.jar
