@@ -3,10 +3,12 @@ version: '3.8'
 services:
     # Jettyコンテナ
     web:
-        build: plantuml
+        build:
+            context: ./plantuml
+            dockerfile: Dockerfile
         image: plantuml-jetty-server-alpine
         container_name: plantuml-server
         ports:
-            - "18080:8080"
+            - 18080:8080
         working_dir: /usr/local/jetty
         command: java -jar start.jar
